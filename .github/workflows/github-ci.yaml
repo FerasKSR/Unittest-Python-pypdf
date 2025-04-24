@@ -104,13 +104,6 @@ jobs:
         COVERAGE_PROCESS_START: 'pyproject.toml'
     - name: Rename coverage data file
       run: mv .coverage ".coverage.$RANDOM"
-    - name: Upload coverage data
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-data.${{ matrix.python-version }}-${{ matrix.use-crypto-lib }}
-        path: .coverage.*
-        if-no-files-found: ignore
-        include-hidden-files: true
     - name: Combine coverage & create xml report
       run: |
         python -m coverage combine
