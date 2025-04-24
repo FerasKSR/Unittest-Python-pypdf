@@ -112,9 +112,9 @@ jobs:
         if-no-files-found: ignore
         include-hidden-files: true
     - name: Combine coverage & create xml report
-        run: |
-          python -m coverage combine
-          python -m coverage xml
+      run: |
+        python -m coverage combine
+        python -m coverage xml
     - name: Archive code coverage results
       uses: actions/upload-artifact@v4
       with:
